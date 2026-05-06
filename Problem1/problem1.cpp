@@ -1,7 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 class Solution {
 public:
     int maxSum(string s) {
-        
+
         int n = s.size();
         string t = s + s;
 
@@ -9,7 +16,7 @@ public:
 
         int left = 0;
         int currSum = 0;
-        int maxSum = 0;
+        int ans = 0;
 
         for (int right = 0; right < 2 * n; right++) {
 
@@ -26,9 +33,21 @@ public:
                 left++;
             }
 
-            maxSum = max(maxSum, currSum);
+            ans = max(ans, currSum);
         }
 
-        return maxSum;
+        return ans;
     }
 };
+
+int main() {
+
+    string s;
+    cin >> s;
+
+    Solution obj;
+
+    cout << obj.maxSum(s) << endl;
+
+    return 0;
+}
